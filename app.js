@@ -74,3 +74,54 @@ arrayStudenti.forEach ( function (studente) {
 
 
 })
+
+
+// MILESTONE 2
+// Dare la possibilità all’utente, attraverso 3 prompt(), 
+//di aggiungere un nuovo oggetto studente inserendo nell’ordine: nome, cognome e età.
+
+// creo un nuovo oggetto vuoto e lo popolo con i prompt
+
+const nuovoStudente = {
+
+    nome: prompt('inserisci il tuo nome '),
+    cognome: prompt('inserisci il tuo cognome '),
+    eta: prompt('inserisci la tua eta ')
+}
+
+// stampo il nuovo oggetto
+console.log(nuovoStudente)
+ 
+// Aggiungere il nuovo studente all’array di studenti
+// = pusho il nuovo oggetto studente nell'array di studenti
+
+arrayStudenti.push(nuovoStudente)
+
+console.log(arrayStudenti)
+
+// Ciclare su tutti gli studenti e stampare per ognuno di essi tutte le proprietà nome, cognome, eta
+// prima ciclate con un ciclo for
+
+// for ( i = 0 ; i < arrayStudenti.length; i++ ) {
+
+//     const singoloStudente = arrayStudenti[i]
+//     const nome = singoloStudente.nome
+//     const cognome = singoloStudente.cognome
+//     const eta = singoloStudente.eta
+
+//     console.log(singoloStudente.nome, singoloStudente.cognome, singoloStudente.eta)
+
+// }
+
+// poi commentate il ciclo for e usate il forEach
+
+arrayStudenti.forEach ( function (studente) {
+
+    const nome = studente.nome
+    const cognome = studente.cognome
+    const eta = studente.eta
+
+    console.log(studente.nome, studente.cognome, studente.eta)
+
+
+})
