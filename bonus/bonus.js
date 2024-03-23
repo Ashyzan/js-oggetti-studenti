@@ -74,4 +74,16 @@ buttonElement.addEventListener("click", function () {
     arrayStudenti.push(nuovoStudente)
     document.getElementById("result").innerHTML = `I dati che hai inserito sono Nome: ${nome}, Cognome: ${cognome} , Età: ${eta}`;
 
+    // stampo array nuovo
+    console.log(arrayStudenti)
+
+    arrayStudenti.forEach ( function (dati) {
+
+        document.getElementById("nomeStudente").innerHTML = `Nome: ${dati.nome}`;
+        document.getElementById("cognomeStudente").innerHTML = `Cognome: ${dati.cognome}`;
+        document.getElementById("etaStudente").innerHTML = `Età: ${dati.eta}`;
+
+    })
+
+    
 });
