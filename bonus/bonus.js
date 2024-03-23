@@ -77,13 +77,21 @@ buttonElement.addEventListener("click", function () {
     // stampo array nuovo
     console.log(arrayStudenti)
 
-    arrayStudenti.forEach ( function (dati) {
+    for (i = 0 ; i< arrayStudenti.length; i++) {
 
-        document.getElementById("nomeStudente").innerHTML = `Nome: ${dati.nome}`;
-        document.getElementById("cognomeStudente").innerHTML = `Cognome: ${dati.cognome}`;
-        document.getElementById("etaStudente").innerHTML = `Età: ${dati.eta}`;
+        const singoloStudente = arrayStudenti[i]
+        console.log(singoloStudente)
 
-    })
+        const nome = singoloStudente.nome
+        const cognome = singoloStudente.cognome
+        const eta = singoloStudente.eta
+
+       // document.getElementById("classe").innerHTML = `Nome: ${singoloStudente.nome} , Cognome: ${singoloStudente.cognome} , Età: ${singoloStudente.eta}`;
+
+        document.getElementById("1").innerHTML = `Nome: ${arrayStudenti[0]}`;
+    
+    
+    }
 
     
 });
