@@ -87,7 +87,8 @@ buttonElement.addEventListener("click", function () {
         const eta = singoloStudente.eta
 
 
-        document.getElementById("students-list").innerHTML += `<li>Nome: ${nome} </li> <li>Cognome: ${cognome} </li> <li>Età: ${eta}</li><br>`;
+        document.getElementById("students-list").innerHTML += `<br><li>Nome: ${nome} </li> <li>Cognome: ${cognome} </li> <li>Età: ${eta}</li><br>`;
+        document.getElementById("classe-numero").innerHTML = `<p>La classe è composta da ${arrayStudenti.length} studenti</p>`;
     
     
     }
