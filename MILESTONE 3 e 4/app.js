@@ -49,7 +49,7 @@ const arrayStudenti = [
 // const studentElement = document.getElementById('student-table')
 // console.log(studentElement)
 
-
+// ciclo su tutto l'array e stampo gli studenti nell'HTML nella tabella
 for ( i = 0 ; i < arrayStudenti.length; i++ ) {
 
     const singoloStudente = arrayStudenti[i]
@@ -69,8 +69,25 @@ for ( i = 0 ; i < arrayStudenti.length; i++ ) {
 
     // studentElement.innerHTML += tableStudentPrint
 
+    // invoco la funzione per stampare gli studenti nella tabella
     appendStudentHtml(singoloStudente);
 
+}
+
+// creo una funzione che mi stampi l'oggetto studente nella tabella
+function appendStudentHtml(student) {
+    
+    const studentElement = document.getElementById('student-table')
+    //console.log(studentElement)
+    
+	const tableStudentPrint = `
+	<tr>
+    <td>${student.nome}</td>
+    <td>${student.cognome}</td>
+    <td>${student.eta}</td>
+	</tr>`
+    
+    studentElement.innerHTML += tableStudentPrint
 }
 
 // MILESTONE 4
@@ -78,17 +95,37 @@ for ( i = 0 ; i < arrayStudenti.length; i++ ) {
 // Aggiungere il nuovo studente all’array di studenti.
 // Aggiornare l’interfaccia con il nuovo studente.
 
-function appendStudentHtml(student) {
+// mi creo una funzione che accetti un parametro di tipo evento, che impedisca il refresh della pagina e che raccolga le 
+// informazioni del form compilate dall'utente
+
+
+const form = document.getElementById("form-studenti");
+//console.log(form);
+form.addEventListener('submit', aggiungiStudente);
+
+
+//Funzione che accetta un parametro di tipo evento
+function aggiungiStudente(e) {
+	//Disabilitare la propagazione del submit
+    e.preventDeafult();
+	//Recuperiamo i singoli input per recuperare il valore che viene inserito 
+	//alla compilazione del form 
+	const name = document.getElementById("name").value;
+	const surname = document.getElementById("surname").value;
+	const age = document.getElementById("age").value;
 	
-    const studentElement = document.getElementById('student-table')
-    console.log(studentElement)
+    //con i valori recuperati dal form si costruisce il nuovo studente
+	const nuovoStudente = {
+		nome: name,
+		cognome: surname,
+		eta: age
+	};
 
-	const tableStudentPrint = `
-	<tr>
-	  <td>${student.nome}</td>
-	  <td>${student.cognome}</td>
-	  <td>${student.eta}</td>
-	</tr>`
+	console.log(nuovoStudente);
+	//Deve pushare il nuovo membro nell'array
+	arrayStudenti.push(nuovoStudente);
 
-    studentElement.innerHTML += tableStudentPrint
+	console.log(arrayStudenti);
+
+	appendTableHtml(nuovoStudente);
 }
