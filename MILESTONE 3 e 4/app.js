@@ -41,6 +41,13 @@ const arrayStudenti = [
 
     },
 
+    {
+        nome: 'Carletto',
+        cognome: 'Pistillo',
+        eta: '23',
+
+    }
+
 ]
 
 // Ciclare su tutti gli studenti e stampare, per ognuno di essi, 
@@ -98,34 +105,39 @@ function appendStudentHtml(student) {
 // mi creo una funzione che accetti un parametro di tipo evento, che impedisca il refresh della pagina e che raccolga le 
 // informazioni del form compilate dall'utente
 
-
+// mi creo una variabile in cui metto il form
 const form = document.getElementById("form-studenti");
-//console.log(form);
+console.log(form);
+
+
+// aggiungo l'ascolto di js sul submit del form che si attiva solo se viene cliccato il pulsante invia nuovo studente
 form.addEventListener('submit', aggiungiStudente);
 
 
 //Funzione che accetta un parametro di tipo evento
 function aggiungiStudente(e) {
 	//Disabilitare la propagazione del submit
-    e.preventDeafult();
+    e.preventDeafult()
 	//Recuperiamo i singoli input per recuperare il valore che viene inserito 
 	//alla compilazione del form 
-	const name = document.getElementById("name").value;
-	const surname = document.getElementById("surname").value;
-	const age = document.getElementById("age").value;
+	const name = document.getElementById('name').value;
+	const surname = document.getElementById('surname').value;
+	const age = document.getElementById('age').value;
 	
     //con i valori recuperati dal form si costruisce il nuovo studente
 	const nuovoStudente = {
 		nome: name,
 		cognome: surname,
-		eta: age
+		eta: age,
 	};
 
 	console.log(nuovoStudente);
+    
 	//Deve pushare il nuovo membro nell'array
 	arrayStudenti.push(nuovoStudente);
 
 	console.log(arrayStudenti);
 
+    // stampo il nuovo membro appendendolo nella tabella
 	appendTableHtml(nuovoStudente);
 }
