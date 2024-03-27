@@ -117,7 +117,7 @@ form.addEventListener('submit', aggiungiStudente);
 //Funzione che accetta un parametro di tipo evento
 function aggiungiStudente(e) {
 	//Disabilitare la propagazione del submit
-    e.preventDeafult()
+    e.preventDefault()
 	//Recuperiamo i singoli input per recuperare il valore che viene inserito 
 	//alla compilazione del form 
 	const name = document.getElementById('name').value;
@@ -139,5 +139,5 @@ function aggiungiStudente(e) {
 	console.log(arrayStudenti);
 
     // stampo il nuovo membro appendendolo nella tabella
-	appendTableHtml(nuovoStudente);
+	appendStudentHtml(nuovoStudente);
 }
