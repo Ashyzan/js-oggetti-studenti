@@ -140,4 +140,9 @@ function aggiungiStudente(e) {
 
     // stampo il nuovo membro appendendolo nella tabella
 	appendStudentHtml(nuovoStudente);
+
+    // resetto il form
+    document.getElementById('name').value = ''
+	document.getElementById('surname').value = ''
+	document.getElementById('age').value = ''
 }
